@@ -1,0 +1,918 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.line-header, .line-footer {
+  background-color: #572EE5;
+  height: 5px;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 200px 0 200px;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+}
+
+header ul li {
+  padding-right: 48px;
+}
+
+header ul li .linkFavorites, header ul li .linkMyGifos {
+  color: #BECBD5;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #572EE5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+header ul li a:hover {
+  color: #BECBD5;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #4EE3C0;
+          text-decoration-color: #4EE3C0;
+}
+
+header ul li img {
+  border: 1px solid #572EE5;
+  border-radius: 100%;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 300px 0 300px;
+  margin-bottom: 20px;
+}
+
+footer .footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+footer .footer ul li {
+  padding-right: 36px;
+  text-decoration: none;
+}
+
+.dark-mode {
+  background-color: #37383C;
+}
+
+.dark-mode header a {
+  color: white;
+}
+
+.dark-mode footer h4 {
+  color: white;
+}
+
+.dark-mode .searchGifo h1 {
+  color: white;
+}
+
+.dark-mode .searchGifo .wrapper .content-searchInput {
+  border: 1.5px solid white;
+}
+
+.dark-mode .searchGifo .wrapper .content-searchInput input {
+  background-color: #37383C;
+}
+
+.dark-mode .searchGifo .textSearch {
+  color: white;
+}
+
+.dark-mode .trendingGifos {
+  background-color: black;
+}
+
+.dark-mode .trendingGifos h2, .dark-mode .trendingGifos h3 {
+  color: white;
+}
+
+.dark-mode .favoritesGifo h1, .dark-mode .MyGifos h1 {
+  color: white;
+}
+
+.dark-mode .boxMakeGifo h2, .dark-mode .boxMakeGifo h3 {
+  color: white;
+}
+
+.dark-mode .timer-process li, .dark-mode .timer-process label {
+  color: white;
+}
+
+.maxGifo {
+  display: none;
+  position: fixed;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 80%;
+  top: 0;
+  left: 10%;
+  background-color: white;
+  z-index: 2;
+}
+
+.maxGifo .close-maxGifo {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 200px;
+}
+
+.maxGifo .content-maxGifo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.maxGifo .content-maxGifo .buttonPrev-maxGifo, .maxGifo .content-maxGifo .buttonNext-maxGifo {
+  margin: 20px;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  background: transparent;
+}
+
+.maxGifo .content-maxGifo .maxImg {
+  position: relative;
+  z-index: 5;
+  height: 385px;
+  width: 695px;
+}
+
+.maxGifo .content-maxGifo .descMaxGifo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.maxGifoShow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.searchGifo {
+  margin-top: 100px;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #572EE5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchGifo h1 {
+  font-size: 35px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 50px;
+  font-weight: 700;
+}
+
+.searchGifo h1 span {
+  color: #4EE3C0;
+}
+
+.searchGifo .wrapper {
+  position: relative;
+  width: 50%;
+  margin-bottom: 60px;
+}
+
+.searchGifo .wrapper .content-searchInput {
+  position: relative;
+  width: 100%;
+  border: 1.5px solid #572EE5;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.searchGifo .wrapper .content-searchInput input {
+  height: 50px;
+  width: 94%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  -webkit-box-shadow: 0px 1px 5 px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 5 px rgba(0, 0, 0, 0.1);
+}
+
+.searchGifo .wrapper .content-searchInput .icon-search {
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  cursor: pointer;
+}
+
+.searchGifo .wrapper .content-searchInput .autocom-box {
+  padding: 0px;
+  max-height: 280px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchGifo .wrapper .content-searchInput .autocom-box li {
+  text-align: left;
+  list-style: none;
+  padding: 8px 12px;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+  display: none;
+}
+
+.searchGifo .wrapper .content-searchInput .autocom-box li:hover {
+  background: #efefef;
+}
+
+.searchGifo .wrapper .content-searchInput.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.searchGifo .wrapper .content-searchInput.active .autocom-box li {
+  display: block;
+}
+
+.searchGifo .textSearch {
+  margin-bottom: 60px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.searchGifo .textSearch .wordingSearch {
+  font-weight: 500;
+}
+
+.searchGifo .content-listGifoSearch {
+  display: none;
+}
+
+.searchGifo .content-listGifoSearch .titleSearch {
+  margin-bottom: 30px;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-rows: 250px;
+      grid-template-rows: 250px;
+  -ms-grid-columns: (300px)[4];
+      grid-template-columns: repeat(4, 300px);
+  padding: 0;
+  list-style-type: none;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo:hover .overlay {
+  display: block;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo .imgSearch {
+  height: 200px;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 46, 229, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo .overlay .opcionGift {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo .overlay .iconGifts {
+  width: 32px;
+  height: 32px;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch .cardGifo .overlay .infoGifo {
+  position: absolute;
+  bottom: 25%;
+  color: white;
+  left: 15px;
+}
+
+.searchGifo .content-listGifoSearch .listGifoSearch img {
+  width: 100%;
+  height: 100%;
+}
+
+.searchGifo .content-listGifoSearch .btnSearchMore {
+  position: relative;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  background: transparent;
+  margin: 20px 0 20px 0;
+}
+
+.trendingGifos {
+  background-color: #F4F5F8;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.trendingGifos h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  padding-top: 50px;
+  color: #572EE5;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.trendingGifos h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.trendingGifos .slider-trendingGifos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.trendingGifos .slider-trendingGifos .content-trendingGifos {
+  width: 1130px;
+  overflow: hidden;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-rows: 250px;
+      grid-template-rows: 250px;
+  -ms-grid-columns: (357px)[15];
+      grid-template-columns: repeat(15, 357px);
+  padding: 0;
+  list-style-type: none;
+  -webkit-transition: right 0.8s cubic-bezier(0.36, 0.17, 0.13, 1.06), left 0.8s cubic-bezier(0.36, 0.17, 0.13, 1.06);
+  transition: right 0.8s cubic-bezier(0.36, 0.17, 0.13, 1.06), left 0.8s cubic-bezier(0.36, 0.17, 0.13, 1.06);
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo:hover .overlay {
+  display: block;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 46, 229, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo .overlay .opcionGift {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo .overlay .iconGifts {
+  width: 32px;
+  height: 32px;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos .cardGifo .overlay .infoGifo {
+  position: absolute;
+  bottom: 25%;
+  color: white;
+  left: 15px;
+}
+
+.trendingGifos .slider-trendingGifos .listTrendingGifos img {
+  width: 100%;
+  height: 100%;
+}
+
+.trendingGifos .slider-trendingGifos .btnPrev-trendingGifos, .trendingGifos .slider-trendingGifos .btnNext-trendingGifos {
+  margin: 20px;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  background: transparent;
+}
+
+.favoritesGifo {
+  padding-top: 60px;
+  position: relative;
+  text-align: center;
+  margin: 0 220px 0 220px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.favoritesGifo h1 {
+  font-size: 25px;
+  line-height: 30px;
+  margin-top: -5px;
+  color: #572EE5;
+  margin-bottom: 30px;
+}
+
+.favoritesGifo .noFavorites {
+  font-size: 22px;
+  line-height: 33px;
+  padding-bottom: 30px;
+  color: #4EE3C0;
+  font-size: 20px;
+}
+
+.favoritesGifo .content-Favorites {
+  display: none;
+}
+
+.favoritesGifo .listGifosFavs {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-rows: 250px;
+      grid-template-rows: 250px;
+  -ms-grid-columns: (300px)[4];
+      grid-template-columns: repeat(4, 300px);
+  padding: 0;
+  list-style-type: none;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo:hover .overlay {
+  display: block;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo .imgFavs {
+  height: 200px;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 46, 229, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo .overlay .opcionGift {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo .overlay .iconGifts {
+  width: 32px;
+  height: 32px;
+}
+
+.favoritesGifo .listGifosFavs .cardGifo .overlay .infoGifo {
+  position: absolute;
+  bottom: 25%;
+  color: white;
+  left: 15px;
+}
+
+.favoritesGifo .listGifosFavs img {
+  width: 100%;
+  height: 100%;
+}
+
+.favoritesGifo .btnMoreFavs {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  background: transparent;
+  margin: 20px 0 20px 0;
+}
+
+.MyGifos {
+  padding-top: 60px;
+  position: relative;
+  text-align: center;
+  margin: 0 220px 0 220px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.MyGifos h1 {
+  font-size: 25px;
+  line-height: 30px;
+  margin-top: -5px;
+  color: #572EE5;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.MyGifos .noMyGifos {
+  font-size: 22px;
+  line-height: 25px;
+  padding-bottom: 30px;
+  color: #4EE3C0;
+  font-size: 20px;
+}
+
+.MyGifos .content-MyGifos {
+  display: none;
+}
+
+.MyGifos .listMyGifos {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 20px;
+  -ms-grid-rows: 250px;
+      grid-template-rows: 250px;
+  -ms-grid-columns: (300px)[4];
+      grid-template-columns: repeat(4, 300px);
+  padding: 0;
+  list-style-type: none;
+}
+
+.MyGifos .listMyGifos .cardGifo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.MyGifos .listMyGifos .cardGifo:hover .overlay {
+  display: block;
+}
+
+.MyGifos .listMyGifos .cardGifo .imgMyGifo {
+  height: 200px;
+}
+
+.MyGifos .listMyGifos .cardGifo .overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(87, 46, 229, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.MyGifos .listMyGifos .cardGifo .overlay .opcionGift {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.MyGifos .listMyGifos .cardGifo .overlay .iconGifts {
+  width: 32px;
+  height: 32px;
+}
+
+.MyGifos .listMyGifos .cardGifo .overlay .infoGifo {
+  position: absolute;
+  bottom: 25%;
+  color: white;
+  left: 15px;
+}
+
+.MyGifos .listMyGifos img {
+  width: 100%;
+  height: 100%;
+}
+
+.MyGifos .btnMoreMyGifos {
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  background: transparent;
+  margin: 20px 0 20px 0;
+}
+
+.makeGifo .content-makeGifo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.makeGifo .content-makeGifo .imgCamera {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 240px;
+  margin-top: 20px;
+}
+
+.makeGifo .content-makeGifo .imgPelicula {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  right: 200px;
+  margin-top: 360px;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo {
+  border: 1px solid #572EE5;
+  width: 688px;
+  height: 399px;
+  text-align: center;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo .imgRecorded, .makeGifo .content-makeGifo .boxMakeGifo .videoRecorded {
+  display: none;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo .imgRecorded, .makeGifo .content-makeGifo .boxMakeGifo .videoRecorded {
+  width: 480px;
+  height: 320px;
+  margin-top: 35px;
+  margin-left: 104px;
+  display: none;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo .showVideo, .makeGifo .content-makeGifo .boxMakeGifo .showImg {
+  display: block;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo h2 {
+  padding-top: 120px;
+  color: #572EE5;
+  font-size: 30px;
+}
+
+.makeGifo .content-makeGifo .boxMakeGifo span {
+  color: #4EE3C0;
+}
+
+.makeGifo .content-process {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.makeGifo .content-process .timer-process {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.makeGifo .content-process .timer-process ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+  padding: 20px 0 20px 0;
+}
+
+.makeGifo .content-process .timer-process ul .circle {
+  border-radius: 50%;
+  width: 32px;
+  height: 26px;
+  border: 1px solid #572EE5;
+  text-align: center;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.makeGifo .content-process .timer-process .timer {
+  width: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: absolute;
+  margin-left: 420px;
+  color: #572EE5;
+  font-size: 15px;
+}
+
+.makeGifo .content-process .line-process {
+  background-color: #572EE5;
+  height: 5px;
+  width: 800px;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.makeGifo .content-process .btnRecord {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  border-radius: 25px;
+  border-radius: 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 50px;
+  width: 127px;
+  border: 1.5px solid #572EE5;
+  font-size: 14px;
+  font-weight: bold;
+  color: #572EE5;
+  background: transparent;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

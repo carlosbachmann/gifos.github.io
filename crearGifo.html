@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Mis Gifos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./js/crearGifo.js"></script>
+</head>
+<body>
+    <div class="line-header"></div>
+    <header>
+        <!-- Logo -->
+        <a href="index.html"><img id="logo" src="./images/logo-desktop.svg" alt=""></a>
+        <nav>
+            <!-- Menu - Inicio -->
+            <ul class="menu">
+                <li><a href=""></a></li>
+                <li><a id="mode-noc">MODO NOCTURNO</a></li>
+                <li><a href="favoritos.html">FAVORITOS</a></li>
+                <li><a href="misGifos.html">MIS GIFOS</a></li>
+                <li><a id="makeGifo" href="crearGifo.html"><img id="img-makeGifo" src="./images/CTA-crear-gifo-active.svg" alt=""></a></li>
+            </ul>
+            <!-- Menu - Fin -->
+        </nav>
+    </header>
+    <main>
+        <section class="makeGifo">
+            <div class="content-makeGifo">
+                <div class="imgCamera">
+                    <img id="imgCamara" src="images/camara.svg" alt="">
+                    <img src="images/element-luz-camara.svg" alt="">
+                </div>
+                <div class="boxMakeGifo">
+                    <img id="imgRecorded" class="imgRecorded" src="" alt="">
+                    <video id="videoRecorded" class="videoRecorded" src=""></video>
+                    <h2 id="boxMakeGifoTitle" class="boxMakeGifoTitle">Aquí podrás<br>crear tus propios <span>GIFOS</span></h2>
+                    <h3 id="boxMakeGifoSubtitle">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</h3>
+                </div>
+                <div class="imgPelicula"><img id="imgPelicula" src="images/pelicula.svg" alt=""></div>
+            </div>
+            <div class="content-process">
+                <div class="timer-process">
+                    <ul>
+                        <li id="number1" class="circle">1</li>
+                        <li id="number2" class="circle">2</li>
+                        <li id="number3" class="circle">3</li>
+                    </ul>
+                    <div id="timer" class="timer">
+                        <label id="hour">00</label><label>:</label><label id="minutes">00</label><label>:</label><label id="seconds">00</label>
+                    </div>
+                </div>
+                <div class="line-process"></div>
+                <button id="btnRecord" class="btnRecord">COMENZAR</button>
+            </div>
+        </section>
+        <!-- Pie de Pagina -->
+        <footer>
+            <nav class="footer">
+                <ul>
+                    <li><h4>Compartir en:</h4></li>
+                    <li><img id="iconFB" src="./images/icon_facebook.svg" alt=""></li>
+                    <li><img id="iconTW" src="./images/icon-twitter.svg" alt=""></li>
+                    <li><img id="iconIG" src="./images/icon_instagram.svg" alt=""></li>
+                </ul>
+            </nav>
+            <h4>©GIFOS 2021 All Rights Reserved.</h4>
+        </footer>
+    </main>
+    <div class="line-footer"></div>
+</body>
+</html>

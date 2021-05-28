@@ -1,0 +1,147 @@
+*{
+    //Reiniciar estilos
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 80%;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.line-header, .line-footer{
+    background-color: $color-purple;
+    height: 5px;
+    position: relative;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 200px 0 200px;
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+
+        li{
+            padding-right: 48px;
+
+            .linkFavorites, .linkMyGifos{
+                color: $color-grey;
+            }
+
+            a{
+                text-decoration: none;
+                color: $color-purple;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+
+                &:hover{
+                    color: $color-grey;
+                    text-decoration: underline;
+                    text-decoration-color: $color-green;
+                }
+            }
+
+            img{
+                border: 1px solid $color-purple;
+                border-radius: 100%;
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 300px 0 300px;
+    margin-bottom: 20px;
+
+
+    .footer ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        font-size: 13px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+
+        li{
+            padding-right: 36px;
+            text-decoration: none;
+        }
+    }
+}
+
+.dark-mode{
+    background-color: $background-noc;
+    header{
+        a{
+            color: white;
+        }
+    }
+
+    footer{
+        h4{
+            color: white;
+        }
+    }
+
+    .searchGifo{
+        h1{
+            color: white;
+        }
+        
+        .wrapper{
+            .content-searchInput{
+                border: 1.5px solid white;
+
+                input{
+                    background-color: $background-noc;
+                }
+            }
+        }
+
+        .textSearch{
+            color: white;
+        }
+    }
+
+    .trendingGifos{
+        background-color: black;
+        h2, h3{
+            color: white;
+        }
+    }
+
+    .favoritesGifo, .MyGifos{
+        h1{
+            color: white;
+        }
+    }
+
+    .boxMakeGifo{
+        h2, h3{
+            color: white;
+        }
+    }
+
+    .timer-process{
+        li, label {
+            color: white;
+        }
+    }
+}

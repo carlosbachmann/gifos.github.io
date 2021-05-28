@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Mis Gifos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/index.js"></script>
+</head>
+<body>
+    <!-- Gifo maximizado - Inicio -->
+    <div id="maxGifo" class="maxGifo">
+        <div class="close-maxGifo">
+            <img id="icon-close-maxGifo" src="images/close.svg" alt="">
+        </div>
+        <div class="content-maxGifo">
+            <button class="buttonPrev-maxGifo"><img src="./images/button-slider-left.svg" alt=""></button>
+            <div id="img-maxGifo"></div>
+            <button class="buttonNext-maxGifo"><img src="./images/Button-Slider-right.svg" alt=""></button>
+        </div>
+    </div>
+    <!-- Gifo maximizado - Fin -->
+    <div class="line-header"></div>
+    <header>
+        <!-- Logo -->
+        <a href="index.html"><img id="logo" src="./images/logo-desktop.svg" alt=""></a>
+        <nav>
+            <!-- Menu - Inicio -->
+            <ul class="menu">
+                <li><a href=""></a></li>
+                <li><a id="mode-noc">MODO NOCTURNO</a></li>
+                <li><a href="favoritos.html">FAVORITOS</a></li>
+                <li><a href="misGifos.html">MIS GIFOS</a></li>
+                <li><a id="makeGifo" href="crearGifo.html"><img id="img-makeGifo" src="./images/CTA-crear-gifo-active.svg" alt=""></a></li>
+            </ul>
+            <!-- Menu - Fin -->
+        </nav>
+    </header>
+    <main>
+        <section class="searchGifo">
+            <h1>Inspírate, busca, guarda, y crea <br>los mejores <span>GIFOS</span></h1>
+            <div><img src="./images/ilustra_header.svg" alt=""></div>
+            <!-- Buscador - Inicio -->
+            <div class="wrapper">
+                <div id="content-searchInput" class="content-searchInput">
+                    <input type="text" placeholder="Busca GIFOS y más" id="searchInputWrapper">
+                    <div id="autocom-box" class="autocom-box"></div>
+                    <div class="icon-search"><img id="btnSearch" src="./images/icon-search.svg" alt=""></div>
+                </div>
+            </div>
+            <!-- Buscador - Fin -->
+            <div id="textSearch" class="textSearch">
+                <h3>Trending:</h3>
+                <h3 class="wordingSearch">Reactions, Entertainment, Sports, Stickers, Artists</h3>
+            </div>
+            <!-- Lista de busquedas - Inicio -->
+            <div id="content-listGifoSearch" class="content-listGifoSearch">
+                <h2 id="titleSearch" class="titleSearch"></h2>
+                <ul id="listGifoSearch" class="listGifoSearch"></ul>
+                <button id="btnSearchMore" class="btnSearchMore">
+                    <img id="img-btnSearchMore" src="./images/CTA-ver-mas.svg" alt="">
+                </button>
+            </div>
+            <!-- Lista de busquedas - Fin -->
+        </section>
+        <section id="trendingGifos" class="trendingGifos">
+            <h2>Trending GIFOS</h2>
+            <h3>Mira los últimos GIFO de nuestra comunidad.</h3>
+            <div class="slider-trendingGifos">
+                <button id="btnPrev-trendingGifos" class="btnPrev-trendingGifos">
+                    <img id="imgPrev-trendingGifos" src="./images/button-slider-left.svg" alt="">
+                </button>
+                <div class="content-trendingGifos">
+                    <ul id="listTrendingGifos" class="listTrendingGifos"></ul>
+                </div>
+                <button id="btnNext-trendingGifos" class="btnNext-trendingGifos">
+                    <img id="imgNext-trendingGifos" src="./images/Button-Slider-right.svg" alt="">
+                </button>
+            </div>
+        </section>
+        <!-- Pie de Pagina -->
+        <footer>
+            <nav class="footer">
+                <ul>
+                    <li><h4>Compartir en:</h4></li>
+                    <li><img id="iconFB" src="./images/icon_facebook.svg" alt=""></li>
+                    <li><img id="iconTW" src="./images/icon-twitter.svg" alt=""></li>
+                    <li><img id="iconIG" src="./images/icon_instagram.svg" alt=""></li>
+                </ul>
+            </nav>
+            <h4>©GIFOS 2021 All Rights Reserved.</h4>
+        </footer>
+    </main>
+    <div class="line-footer"></div>
+</body>
+</html>

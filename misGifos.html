@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Mis Gifos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/misGifos.js"></script>
+</head>
+<body>
+    <!-- Gifo maximizado - Inicio -->
+    <div id="maxGifo" class="maxGifo">
+        <div class="close-maxGifo">
+            <img id="icon-close-maxGifo" src="images/close.svg" alt="">
+        </div>
+        <div class="content-maxGifo">
+            <button class="buttonPrev-maxGifo"><img src="./images/button-slider-left.svg" alt=""></button>
+            <div id="img-maxGifo"></div>
+            <button class="buttonNext-maxGifo"><img src="./images/Button-Slider-right.svg" alt=""></button>
+        </div>
+    </div>
+    <!-- Gifo maximizado - Fin -->
+    <div class="line-header"></div>
+    <header>
+        <!-- Logo -->
+        <a href="index.html"><img id="logo" src="./images/logo-desktop.svg" alt=""></a>
+        <nav>
+            <!-- Menu - Inicio -->
+            <ul class="menu">
+                <li><a href=""></a></li>
+                <li><a id="mode-noc">MODO NOCTURNO</a></li>
+                <li><a href="favoritos.html">FAVORITOS</a></li>
+                <li><a class="linkMyGifos" href="misGifos.html">MIS GIFOS</a></li>
+                <li><a id="makeGifo" href="crearGifo.html"><img id="img-makeGifo" src="./images/CTA-crear-gifo-active.svg" alt=""></a></li>
+            </ul>
+            <!-- Menu - Fin -->
+        </nav>
+    </header>
+    <main>
+        <!-- MisGifos - Inicio -->
+        <section class="MyGifos">
+        <div><img src="./images/icon-mis-gifos.svg" alt=""></div>
+        <h1>Mis GIFOS</h1>
+        <div id="noMyGifos" class="noMyGifos">
+            <img src="./images/icon-mis-gifos-sin-contenido.svg" alt="">
+            <h3>¡Anímate a crear tu primer GIFO!</h3>
+        </div>
+        <div id="content-MyGifos" class="content-MyGifos">
+            <ul id="listMyGifos" class="listMyGifos"></ul>
+            <button id="btnMoreMyGifos" class="btnMoreMyGifos">
+                <img id="img-btnMoreMyGifos" src="./images/CTA-ver-mas.svg" alt="">
+            </button>
+        </div>
+        </section>
+        <!-- MisGifos - Fin -->       
+        <section id="trendingGifos" class="trendingGifos">
+            <h2>Trending GIFOS</h2>
+            <h3>Mira los últimos GIFO de nuestra comunidad.</h3>
+            <div class="slider-trendingGifos">
+                <button class="btnPrev-trendingGifos" id="btnPrev-trendingGifos">
+                    <img id="imgPrev-trendingGifos" src="./images/button-slider-left.svg" alt="">
+                </button>
+                <div class="content-trendingGifos">
+                    <ul id="listTrendingGifos" class="listTrendingGifos"></ul>
+                </div>
+                <button class="btnNext-trendingGifos" id="btnNext-trendingGifos">
+                    <img id="imgNext-trendingGifos" src="./images/Button-Slider-right.svg" alt="">
+                </button>
+            </div>
+        </section>
+        <!-- Pie de Pagina -->
+        <footer>
+            <nav class="footer">
+                <ul>
+                    <li><h4>Compartir en:</h4></li>
+                    <li><img id="iconFB" src="./images/icon_facebook.svg" alt=""></li>
+                    <li><img id="iconTW" src="./images/icon-twitter.svg" alt=""></li>
+                    <li><img id="iconIG" src="./images/icon_instagram.svg" alt=""></li>
+                </ul>
+            </nav>
+            <h4>©GIFOS 2021 All Rights Reserved.</h4>
+        </footer>
+    </main>
+    <div class="line-footer"></div>
+</body>
+</html>
