@@ -2,6 +2,9 @@ window.onload = function(){
 
     //Iniciar elementos
     var elementBody = document.body;
+    //Menu
+    let hamburger = document.getElementById("hamburger");
+    let Menu = document.getElementById("menu");
     //Header
     let logo = document.getElementById('logo');
     let modeNoc = document.getElementById('mode-noc');
@@ -13,11 +16,13 @@ window.onload = function(){
     let iconTW = document.getElementById('iconTW');
     //Buscador
     let searchWrapper = document.getElementById('content-searchInput');
+    let iconSearchInput = document.getElementById('icon-searchInput')
     let inputBox = document.getElementById('searchInputWrapper');
     let suggBox = document.getElementById('autocom-box');
     let btnSeach = document.getElementById('btnSearch');
 
     let textSearch = document.getElementById('textSearch');
+    let wordingSearch = document.getElementById('wordingSearch');
 
     let contentListGifoSearch = document.getElementById('content-listGifoSearch');
     let titleSearch = document.getElementById('titleSearch');
@@ -62,14 +67,18 @@ window.onload = function(){
             imgBtnNextTren.src = "./images/Button-Slider-right.svg";
         }    
     })
+    //Menu
+    hamburger.addEventListener('click', () =>{
+        hamburger.classList.toggle("active");
+        Menu.classList.toggle("active");
+    })
 
     //Header
     makeGifo.addEventListener('mouseover', ()=>{
         if(modeNoc.textContent == "MODO NOCTURNO")
             imgMakeGifo.src = "./images/CTA-crear-gifo-hover.svg"
         else
-            imgMakeGifo.src = "./images/CTA-crear-gifo-hover-modo-noc.svg"
-        
+            imgMakeGifo.src = "./images/CTA-crear-gifo-hover-modo-noc.svg"  
     })
 
     makeGifo.addEventListener('mouseout',() =>{
@@ -117,6 +126,7 @@ window.onload = function(){
     //Recomendaciones - Inicio
     //Completar Base de palabras buscadas
     let suggestion = [];
+    let wordSearch;
     async function getTrendingSearch(){
         let response = await fetch('https://api.giphy.com/v1/trending/searches?api_key=l3K24h2y7NIQeI3mg3iX8CLTVep7UdNt&limit=25&rating=g')
         let info = await response.json();
@@ -131,11 +141,13 @@ window.onload = function(){
         let dataSearch = e.target.value;
         let suggArray = [];
         if(dataSearch){
+            iconSearchInput.style.display="inline";
+            btnSeach.src = "./images/close.svg"
             suggArray = suggestion.filter((data)=>{
                 return data.toLocaleLowerCase().startsWith(dataSearch.toLocaleLowerCase());
             });
             suggArray = suggArray.map((data)=>{
-                return data = '<li>'+ data +'</li>';
+                return data = '<li>'+ '<img id="icon-searchInputSugg" class="icon-searchInputSugg" src="./images/icon-search-mod-noc.svg" alt="">' + data +'</li>';
             });
             searchWrapper.classList.add("active");
             showSuggestions(suggArray);
@@ -145,15 +157,21 @@ window.onload = function(){
                 interactionSug(i)
             }
         }else{
+            iconSearchInput.style.display="none";
+            btnSeach.src = "./images/icon-search.svg"
             searchWrapper.classList.remove("active");
-        }  
+        }
     }
 
     function interactionSug(index){
         let opcSugg = document.getElementById(`sugg${index}`);
         opcSugg.addEventListener('click',() =>{
             inputBox.value = opcSugg.textContent;
+            btnSeach.src = "./images/icon-search.svg"
+            searchWrapper.classList.remove("active");
             inputSearchGifo(inputBox)
+            wordSearch = inputBox.value;
+            inputBox.value = "";
         })
     }
 
@@ -161,7 +179,7 @@ window.onload = function(){
         let listData;
         if(!list.length){
             userValue = inputBox.value;
-            listData = '<li>' + userValue +'</li>';
+            listData = '<li>'+ '<img id="icon-searchInputSugg" class="icon-searchInputSugg" src="./images/icon-search-mod-noc.svg" alt="">' + userValue +'</li>';
         }else{
             listData = list.join('');
         }
@@ -169,8 +187,47 @@ window.onload = function(){
     }
     //Recomendaciones - Fin
     //Lista de busquedas - Inicio
+    inputBox.addEventListener('keypress', (e)=>{
+        if(e.key === 'Enter'){
+            inputSearchGifo(searchInputWrapper);
+            wordSearch = searchInputWrapper.value;
+            inputBox.value = "";
+            btnSeach.src = "./images/icon-search.svg"
+        }
+    })
     btnSeach.addEventListener('click', ()=>{
-        inputSearchGifo(searchInputWrapper)
+        if(btnSeach.src === './images/icon-search.svg'){
+            inputSearchGifo(searchInputWrapper)
+            wordSearch = searchInputWrapper.value;
+        }else{
+            inputBox.value = "";
+            btnSeach.src = "./images/icon-search.svg"
+            searchWrapper.classList.remove("active");
+        }
+    })
+
+    // Recomendation Trending gifos
+    let recomendation = [];
+    async function getRecomendationTrendings(){
+        let response = await fetch('https://api.giphy.com/v1/trending/searches?api_key=l3K24h2y7NIQeI3mg3iX8CLTVep7UdNt&limit=25&rating=g')
+        let info = await response.json();
+        wordingSearch.innerHTML = `<spam id=recomendation0>${info.data[0]}</spam>, <spam id=recomendation1>${info.data[1]}</spam>, <spam id=recomendation2>${info.data[2]}</spam>, <spam id=recomendation3>${info.data[3]}</spam>, <spam id=recomendation4>${info.data[4]}</spam>`;
+
+        for (let i = 0; i < 5; i++) {
+            recomendation[i] = document.getElementById(`recomendation${i}`);
+            recomendation[i].addEventListener('click', ()=>{
+                searchInputWrapper.value = recomendation[i].innerHTML;
+                inputSearchGifo(searchInputWrapper);
+                wordSearch = searchInputWrapper.value;
+                inputBox.value = "";
+            })        
+        }
+    }   
+
+    getRecomendationTrendings();
+
+    imgBtnSearchMore.addEventListener('click', ()=>{
+        searchGifo(wordSearch,maxListSearch);
     })
 
     function inputSearchGifo(searchInputWrapper){
@@ -205,16 +262,18 @@ window.onload = function(){
         renderViewSearch(info,contSearch);
     }
     
+    let maxListSearch;
     function renderViewSearch(gifos, contSearch){
         let newGifoSearch
         let baseGifoSearch = gifos.data
         //console.log('Gifos:',baseGifoSearch);
-        let maxListSearch = contSearch + 12;
+        maxListSearch = contSearch + 12;
         if(maxListSearch > baseGifoSearch.length){
             maxListSearch = baseGifoSearch.length;
             btnSearchMore.style.display="none";
         }
-        listGifoSearch.innerHTML = ''; 
+        if(contSearch == 0)
+            listGifoSearch.innerHTML = ''; 
         for(let i=contSearch; i<maxListSearch; i++){
             newGifoSearch = document.createElement("li");
             newGifoSearch.classList.add("cardGifo")
@@ -384,8 +443,8 @@ window.onload = function(){
     //Flechas de desplazamiento
     let right = 0;
     BtnNextTren.addEventListener('click', ()=>{
-        if(right <= 3390)
-            right += 1130;
+        if(right <= 2970)
+            right += 990;
         else
             right = 0;
         listTrendingGifos.style.right= `${right}px`;    
@@ -393,9 +452,9 @@ window.onload = function(){
 
     BtnPrevTren.addEventListener('click', ()=>{
         if(right > 0)
-            right -= 1130;
+            right -= 990;
         else
-            right = 4520;
+            right = 3960;
         listTrendingGifos.style.right= `${right}px`;
     })
 

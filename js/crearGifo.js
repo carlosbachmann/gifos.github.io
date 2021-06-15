@@ -15,7 +15,10 @@ window.onload = function(){
     let iconTW = document.getElementById('iconTW');
     //Container Gifos
     let imgRecorded = document.getElementById("imgRecorded");
-    let videoRecorded = document.getElementById("videoRecorded"); 
+    let videoRecorded = document.getElementById("videoRecorded");
+    let overlay = document.getElementById("overlay"); 
+    let iconDownload = document.getElementById("iconDownload"); 
+    let iconLink = document.getElementById("iconLink");
     let boxMakeGifoTitle = document.getElementById("boxMakeGifoTitle");
     let boxMakeGifoSubtitle = document.getElementById("boxMakeGifoSubtitle");
     let imgCamara = document.getElementById("imgCamara");
@@ -247,32 +250,55 @@ window.onload = function(){
                     arrayMyGifos.push(response.data.id);
                     localStorage.setItem('myGifos', JSON.stringify(arrayMyGifos));
                     localStorage.setItem('contMyGifos', arrayMyGifos.length);
+                    gifoUp(response.data.id)
                 }
-            )
+            )    
         })
         recorder.camera.stop();
         recorder.destroy();
         recorder = null;
         console.log("Fin");
-        // imgRecorded.src = URL.createObjectURL(recorder.getBlob());
-        // form.append('file', recorder.getBlob(), 'myGifo.gif');
+    }
 
-        // let send = fetch(`http://upload.giphy.com/v1/gifs?api_key=l3K24h2y7NIQeI3mg3iX8CLTVep7UdNt&file=${form}`, {method: 'POST', body: form});
+    async function gifoUp(Mygifo){
+        btnRecord.style.display = "none";
+        overlay.style.display = "block";
 
-        // send.then(
-        //     (sucess) =>{
-        //         return sucess.json();
-        //     }
-        // ).then(
-        //     (response) => {
-        //         arrayMyGifos.push(response.data.id);
-        //         localStorage.setItem('myGifos', JSON.stringify(arrayMyGifos));
-        //         localStorage.setItem('contMyGifos', arrayMyGifos.length);
-        //     }
-        // )
-        // recorder.camera.stop();
-        // recorder.destroy();
-        // recorder = null;
+        let response = await fetch(`https://api.giphy.com/v1/gifs/${Mygifo}?api_key=l3K24h2y7NIQeI3mg3iX8CLTVep7UdNt`)
+        let info = await response.json();
+        let urlGifo = info.data.images.original.url;
+        console.log('urlGifo',urlGifo);
+
+        iconDownload.addEventListener('click',() =>{    
+            downloadFile(urlGifo, `${info.data.title}`);
+        })
+
+        iconLink.addEventListener('click',() =>{
+            var copyUrl = document.createElement('textarea');
+            copyUrl.value = urlGifo;
+            copyUrl.setAttribute('readonly', '');
+            copyUrl.style = {position: 'absolute', left: '-9999px'};
+            document.body.appendChild(copyUrl);
+            copyUrl.select();
+            document.execCommand('copy');
+            document.body.removeChild(copyUrl);
+            alert("Gifo copiado en portapapeles");
+        }) 
+    }
+
+    function downloadFile(url, filename){
+        fetch(`${url}`).then(
+            (response) =>{
+                return response.blob().then(
+                    (response) => {
+                        let newElement = document.createElement("a");
+                        newElement.href = URL.createObjectURL(response);
+                        newElement.setAttribute("download", filename);
+                        newElement.click();
+                    }
+                )
+            }
+        )    
     }
 
     function setTime(){

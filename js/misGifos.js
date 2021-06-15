@@ -413,8 +413,8 @@ window.onload = function(){
     //Flechas de desplazamiento
     let right = 0;
     BtnNextTren.addEventListener('click', ()=>{
-        if(right <= 3390)
-            right += 1130;
+        if(right <= 2970)
+            right += 990;
         else
             right = 0;
         listTrendingGifos.style.right= `${right}px`;    
@@ -422,9 +422,9 @@ window.onload = function(){
 
     BtnPrevTren.addEventListener('click', ()=>{
         if(right > 0)
-            right -= 1130;
+            right -= 990;
         else
-            right = 4520;
+            right = 3960;
         listTrendingGifos.style.right= `${right}px`;
     })
 

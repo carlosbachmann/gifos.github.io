@@ -28,24 +28,29 @@
         <a href="index.html"><img id="logo" src="./images/logo-desktop.svg" alt=""></a>
         <nav>
             <!-- Menu - Inicio -->
-            <ul class="menu">
+            <ul id="menu" class="menu">
                 <li><a href=""></a></li>
                 <li><a id="mode-noc">MODO NOCTURNO</a></li>
                 <li><a href="favoritos.html">FAVORITOS</a></li>
                 <li><a href="misGifos.html">MIS GIFOS</a></li>
-                <li><a id="makeGifo" href="crearGifo.html"><img id="img-makeGifo" src="./images/CTA-crear-gifo-active.svg" alt=""></a></li>
+                <li><a id="makeGifo" class="makeGifo" href="crearGifo.html"><img id="img-makeGifo" src="./images/CTA-crear-gifo-active.svg" alt=""></a></li>
             </ul>
+            <div id="hamburger" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <!-- Menu - Fin -->
         </nav>
     </header>
     <main>
         <section class="searchGifo">
             <h1>Inspírate, busca, guarda, y crea <br>los mejores <span>GIFOS</span></h1>
-            <div><img src="./images/ilustra_header.svg" alt=""></div>
+            <div><img class="imgHeader" src="./images/ilustra_header.svg" alt=""></div>
             <!-- Buscador - Inicio -->
             <div class="wrapper">
                 <div id="content-searchInput" class="content-searchInput">
-                    <input type="text" placeholder="Busca GIFOS y más" id="searchInputWrapper">
+                    <img id="icon-searchInput" class="icon-searchInput" src="./images/icon-search-mod-noc.svg" alt=""><input type="text" placeholder="Busca GIFOS y más" id="searchInputWrapper">
                     <div id="autocom-box" class="autocom-box"></div>
                     <div class="icon-search"><img id="btnSearch" src="./images/icon-search.svg" alt=""></div>
                 </div>
@@ -53,7 +58,7 @@
             <!-- Buscador - Fin -->
             <div id="textSearch" class="textSearch">
                 <h3>Trending:</h3>
-                <h3 class="wordingSearch">Reactions, Entertainment, Sports, Stickers, Artists</h3>
+                <h3 id="wordingSearch" class="wordingSearch"></h3>
             </div>
             <!-- Lista de busquedas - Inicio -->
             <div id="content-listGifoSearch" class="content-listGifoSearch">
@@ -82,9 +87,10 @@
         </section>
         <!-- Pie de Pagina -->
         <footer>
+            <h4 class="FooterSNH4">Compartir en:</h4>
             <nav class="footer">
                 <ul>
-                    <li><h4>Compartir en:</h4></li>
+                    <li><h4 class="FooterSNLI">Compartir en:</h4></li>
                     <li><img id="iconFB" src="./images/icon_facebook.svg" alt=""></li>
                     <li><img id="iconTW" src="./images/icon-twitter.svg" alt=""></li>
                     <li><img id="iconIG" src="./images/icon_instagram.svg" alt=""></li>

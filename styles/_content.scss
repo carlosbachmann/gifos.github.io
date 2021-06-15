@@ -44,6 +44,17 @@
             justify-content: space-between;
         }
     }
+    @media (max-width: $breakpoint_mobile){
+        .close-maxGifo{
+            margin-right: 0;
+        }
+        .content-maxGifo{
+            .maxImg{
+                height: 250px;
+                width: 300px;
+            }
+        }
+    }
 }
 
 .maxGifoShow{
@@ -88,9 +99,30 @@
             border-radius: 25px;
             box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
 
+            .icon-searchInput{
+                height: 15px;
+                margin-left: 16px;
+                display: none;
+            }
+
+            .icon-searchInputSugg{
+                height: 15px;
+                margin-right: 12px;
+            }
+
+            @media (max-width: $breakpoint_mobile){
+                .icon-searchInput{
+                    margin-left: 12px;
+                }
+    
+                .icon-searchInputSugg{
+                    margin-right: 12px;
+                }
+            }
+
             input{
                 height: 50px;
-                width: 94%;
+                width: 89%;
                 outline: none;
                 border: none;
                 border-radius: 5px;
@@ -168,7 +200,7 @@
             display: grid;
             grid-gap: 20px;
             grid-template-rows: 250px;
-            grid-template-columns: repeat(4, 300px);
+            grid-template-columns: repeat(4, 260px);
             padding: 0;
             list-style-type: none;
 
@@ -234,6 +266,52 @@
             margin: 20px 0 20px 0;
         }
     }
+
+    @media (max-width: $breakpoint_mobile){
+        h1{
+            font-size: 20px;
+            line-height: 33px;
+        }
+        .imgHeader{
+            height: 100px;
+            width: 200px;
+        }
+        .wrapper{
+            width: 90%;
+            margin-bottom: 30px;
+            .content-searchInput{
+                input{
+                    width: 88%;
+                    font-size: 13px;
+                }
+            }
+        }
+        .textSearch{
+            font-size: 11px;
+            width: 220px;
+            .wordingSearch{
+                font-weight: 300;
+            }
+        } 
+        
+        .content-listGifoSearch{
+            margin: 0 20px 0 20px;
+            .listGifoSearch{
+                display: grid;
+                grid-gap: 12px;
+                grid-template-rows: 250px;
+                grid-template-columns: repeat(2, 110px);
+                padding: 0;
+                list-style-type: none;
+    
+                .cardGifo{
+                    .imgSearch{
+                        height: 120px;
+                    }
+                }
+            }
+        }
+    }
 }
 //Buscar Gifos - Fin
 
@@ -246,7 +324,6 @@
     h2{
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 25px;
         line-height: 30px;
         padding-top: 50px;
         color: $color-purple;
@@ -275,9 +352,9 @@
         .listTrendingGifos{
             position: relative;
             display: grid;
-            grid-gap: 20px;
+            grid-gap: 21px;
             grid-template-rows: 250px;
-            grid-template-columns: repeat(15, 357px);
+            grid-template-columns: repeat(15, 310px);
             padding: 0;
             list-style-type: none;
             transition: right .8s cubic-bezier(.36,.17,.13,1.06), left .8s cubic-bezier(.36,.17,.13,1.06);
@@ -336,6 +413,36 @@
             background: transparent;
         }
     }
+
+    @media (max-width: $breakpoint_mobile){
+        h2{
+            font-size: 18px;
+            padding-top: 50px;
+            padding-bottom: 12px;
+        }
+    
+        h3{
+            font-size: 16px;
+            padding-bottom: 50px;
+        }
+        .slider-trendingGifos{
+            .listTrendingGifos{
+                width: 100%;
+                overflow: scroll;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+                grid-template-columns: repeat(15, 240px);
+            }
+
+            .btnPrev-trendingGifos, .btnNext-trendingGifos{
+                display: none;
+            }
+        }
+    }
 }
 //Lista Trending - Fin
 
@@ -375,7 +482,7 @@
         display: grid;
         grid-gap: 20px;
         grid-template-rows: 250px;
-        grid-template-columns: repeat(4, 300px);
+        grid-template-columns: repeat(4, 260px);
         padding: 0;
         list-style-type: none;
 
@@ -438,6 +545,24 @@
         background: transparent;
         margin: 20px 0 20px 0;
     }
+
+    @media (max-width: $breakpoint_mobile){
+        margin: 0 20px 0 20px;
+        .listGifosFavs{
+            display: grid;
+            grid-gap: 12px;
+            grid-template-rows: 250px;
+            grid-template-columns: repeat(2, 110px);
+            padding: 0;
+            list-style-type: none;
+
+            .cardGifo{
+                .imgFavs{
+                    height: 120px;
+                }
+            }
+        }
+    }
 }
 //Favoritos - Fin
 
@@ -478,7 +603,7 @@
         display: grid;
         grid-gap: 20px;
         grid-template-rows: 250px;
-        grid-template-columns: repeat(4, 300px);
+        grid-template-columns: repeat(4, 260px);
         padding: 0;
         list-style-type: none;
 
@@ -541,6 +666,24 @@
         background: transparent;
         margin: 20px 0 20px 0;
     }
+
+    @media (max-width: $breakpoint_mobile){
+        margin: 0 20px 0 20px;
+        .listMyGifos{
+            display: grid;
+            grid-gap: 12px;
+            grid-template-rows: 250px;
+            grid-template-columns: repeat(2, 110px);
+            padding: 0;
+            list-style-type: none;
+
+            .cardGifo{
+                .imgMyGifo{
+                    height: 120px;
+                }
+            }
+        }
+    }
 }
 //Mis Gifos - Fin
 
@@ -557,14 +700,14 @@
         .imgCamera{
             display: flex;
             position: relative;
-            left: 240px;
+            left: 92px;
             margin-top: 20px;
         }
 
         .imgPelicula{
             display: flex;
             position: relative;
-            right: 200px;
+            right: 48px;
             margin-top: 360px;
         }
         
@@ -584,6 +727,38 @@
                 margin-top: 35px;
                 margin-left: 104px;
                 display: none;
+            }
+
+            .overlay{
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 364px;
+                background-color: rgba(87,46,229,.5);
+                width: 42%;
+                height: 72%;
+
+                .opcionGift{
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                }
+
+                .iconGifts{
+                    width: 32px;
+                    height: 32px;
+                }
+
+                .infoGifo{
+                    position: absolute;
+                    bottom: 45%;
+                    color: white;
+                    left: 150px;
+                }
+
+                .urlGifo{
+                    display: none;
+                }
             }
 
             .showVideo, .showImg{

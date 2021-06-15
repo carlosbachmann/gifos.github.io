@@ -59,6 +59,67 @@ header{
             }
         }
     }
+
+    .hamburger{
+        display: none;
+    }
+
+    .bar{
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: $color-purple;
+    }
+
+    @media (max-width: $breakpoint_mobile){
+        padding: 20px 20px 0 20px;
+
+        .menu{
+            z-index: 1;
+            position: fixed;
+            left: -100%;
+            top: 5rem;
+            flex-direction: column;
+            background-color: $color-purple; 
+            width: 100%;
+            height: 484px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow:
+                0 10px 27px rgba(0, 0, 0, 0.05);
+            .makeGifo{
+                display: none;
+            }
+            li{
+                a{
+                    color: white;
+                }
+            }
+        }
+
+        .menu.active{
+            left: 0;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+    
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+    
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
 }
 
 footer{
@@ -68,6 +129,9 @@ footer{
     padding: 50px 300px 0 300px;
     margin-bottom: 20px;
 
+    .FooterSNH4{
+        display: none;
+    }
 
     .footer ul{
         display: flex;
@@ -82,6 +146,22 @@ footer{
         li{
             padding-right: 36px;
             text-decoration: none;
+        }
+    }
+    @media (max-width: $breakpoint_mobile){
+        padding: 20px 20px 0 20px;
+        font-size: 10px;
+        display: block;
+        text-align: center;
+
+        .FooterSNH4{
+            display: block;
+        }
+        .footer ul{
+            margin: 10px 0 20px 0;
+            .FooterSNLI{
+                display: none;
+            }
         }
     }
 }
